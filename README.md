@@ -2,7 +2,7 @@
 2020데이콘 제주 신용카드 빅데이터  경진대회 참가를 위한 repository
 
 ## 1. 학습한 모델
-<jeju_creditcard_pred20Y04M_COVratio.ipynb>
+* <jeju_creditcard_pred20Y04M_COVratio.ipynb>
 
 1. jeju_creditcard_M1M4ratio_COVratio.ipynb (Baseline)
     - LB(Public) 3.1570802218
