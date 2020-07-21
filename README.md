@@ -1,9 +1,6 @@
 # 2020_dacon_jeju_creditcard
 2020데이콘 제주 신용카드 빅데이터  경진대회 참가를 위한 repository
 
-# 2020_dacon_satellite_precipitation
-Dacon AI프렌즈 시즌2 위성관측 활용 강수량 산출 대회 준비를 위한 repository  
-
 ## 1. 학습한 모델
 <jeju_creditcard_pred20Y04M_COVratio.ipynb>
 
