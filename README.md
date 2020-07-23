@@ -28,17 +28,25 @@
     - "COV_ratio" = (20년2월AMT / 20년1월AMT) * (20년3월AMT / 20년1월AMT)
     - log 적용 ->  "non_COV 4월 총 AMT" * "COV_ratio" -> exp 적용
 
-5. jeju_creditcard_mean2019_m03m01_product_m03m01
+5. jeju_creditcard_mean2019_m03m01_product_m03m01.ipynb
     - LB(Public) : 2.9918479873
     - "non_COV 4월 총 AMT" = 19년 전체 평균
     - "COV_ratio" = (20년2월AMT / 20년1월AMT) * (20년3월AMT / 20년1월AMT)
     - log 적용 ->  "non_COV 4월 총 AMT" * "COV_ratio" -> exp 적용
 
-6. jeju_creditcard_mean2019_m03m01_product_m03m01
-    - LB(Public) : 2.9918479873
+6. jeju_creditcard_mean2019_m03m01_product_m03m01_zero.ipynb
+    - LB(Public) : 1.7309402903
     - "non_COV 4월 총 AMT" = 19년 전체 평균
     - "COV_ratio" = (20년2월AMT / 20년1월AMT) * (20년3월AMT / 20년1월AMT)
+        -"COV_ratio" : 20년1월AMT, 20년2월AMT, 20년3월AMT 중 하나라도 없는 경우 - > 동일 지역 COV_ratio평균
     - log 적용 ->  "non_COV 4월 총 AMT" * "COV_ratio" -> exp 적용
+    - 3월 데이터가 없는 경우 -> "0으로"
+
+7. 다음 시도 할 내용
+    - jeju_creditcard_mean2019_m03m01_product_m03m01_zero.ipynb파일 마지막에 등장하는 특이 그룹 정리
+    - 규제가 큰 회귀모델을 이용하여 시계열을 예측하고 rmse or std or p-value검정으로 예측이 잘 안되는 그룹 분류
+        - cf) p-value로 할 경우 분류가 힘듬.
+    - 분류에 따라 다른 "non_COV 4월 총 AMT" 말고 다른 값을 사용해볼 것.
 
 ## 2. jeju_creditcard_EDA.ipynb
 
