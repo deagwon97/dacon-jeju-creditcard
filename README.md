@@ -28,5 +28,11 @@
     - "COV_ratio" = (20년2월AMT / 20년1월AMT) * (20년3월AMT / 20년1월AMT)
     - log 적용 ->  "non_COV 4월 총 AMT" * "COV_ratio" -> exp 적용
 
+5. jeju_creditcard_mean2019_m03m01_product_m03m01
+    - LB(Public) : 2.9918479873
+    - "non_COV 4월 총 AMT" = 19년 전체 평균
+    - "COV_ratio" = (20년2월AMT / 20년1월AMT) * (20년3월AMT / 20년1월AMT)
+    - log 적용 ->  "non_COV 4월 총 AMT" * "COV_ratio" -> exp 적용
+
 ## 2. jeju_creditcard_EDA.ipynb
    
