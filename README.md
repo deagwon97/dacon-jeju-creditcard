@@ -1,7 +1,7 @@
 # 2020_dacon_jeju_creditcard
 2020데이콘 제주 신용카드 빅데이터  경진대회 참가를 위한 repository
 
-## 1. 학습한 모델
+## 1. Model history
 * <jeju_creditcard_pred20Y04M_COVratio.ipynb>
 
 1. jeju_creditcard_M1M4ratio_COVratio.ipynb (Baseline)
