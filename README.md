@@ -127,60 +127,106 @@
                 if p < 0.5:  ## 변동성이 적다.
 
                     if 변화가 선형적이다: .........1)
-                        cov_ratio = (1 + 3 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y07M, 19Y08M, 19Y09M)) / 4
+                        cov_ratio_07 = (1 + 3 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y07M, 19Y08M, 19Y09M)) / 4
+                        cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y07M, 19Y08M, 19Y09M)
                         
-                        예측7월 <- 올해4월 * cov_ratio
-                        올해4월 <- 올해 3월 * cov_ratio
-
+                        non_cov_07 = mean(19Y11M, 19Y12M, 20Y01M)
+                        non_cov_04 = mean(19Y11M, 19Y12M, 20Y01M)
+                        
+                        예측 7월 = non_cov_07 * cov_ratio_07
+                        예측 4월 = non_cov_04 * cov_ratio_04
                     
                     else 변화가 비선형적이다:
                     
                         if 계절성을 갖는다.: .........2)
-                            cov_ratio = (1 + 3 * 20Y04M/19Y04M) / 4
-                            
                             # 다항회귀 모델 예측후 rmse 가 0.3보다 작고, diff_per가 30% 미만일 경우
-                            예측7월 <- 작년 7월 * cov_ratio
-                            예측4월 <- 작년 4월 * cov_ratio
+                            cov_ratio_07 = (1 + 3 * 20Y04M/19Y04M) / 4
+                            cov_ratio_04 = 20Y04M/19Y04M
+
+                            non_cov_07 = mean(19Y06M, 19Y07M, 19Y08M)
+                            non_cov_04 = mean(19Y06M, 19Y07M, 19Y08M)
+                            
+                            예측 7월 = non_cov_07 * cov_ratio_07
+                            예측 4월 = non_cov_04 * cov_ratio_04
 
                         elif 특별한 규칙이 없다: .........3)
-                            cov_ratio = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
-                            
                             # 다항회귀 모델 예측후 rmse 가 0.3보다 크거나 같고, diff_per가 30% 이상일 경우
-                            # 특별한 규칙이 없는 경우는 19년 2,3월과
-                            # 20년 2,3월의 스케일만을 비교하는 것이 더 효율적이다.
-                            예측7월 <- 전체 평균을 사용 * cov_ratio
-                            예측4월 <- 전체 평균을 사용 * cov_ratio
-
+                            cov_ratio_07 = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
+                            cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
+                            
+                            non_cov_07 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
+                            non_cov_04 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
+                            
+                            예측 7월 = non_cov_07 * cov_ratio_07
+                            예측 4월 = non_cov_04 * cov_ratio_04
+                            
                 elif p >= 0.5:  ## 변동성이 크다.
                 
                     if 변화가 선형적이다: .........4)
-                        cov_ratio = (1 + 3 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y07M, 19Y08M, 19Y09M)) / 4
-                        예측7월 <- 올해4월  * cov_ratio
+                        cov_ratio_07 = (1 + 3 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y07M, 19Y08M, 19Y09M)) / 4
+                        cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y07M, 19Y08M, 19Y09M)
+                        
+                        non_cov_07 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
+                        non_cov_04 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
+                        
+                        예측 7월 = non_cov_07 * cov_ratio_07
+                        예측 4월 = non_cov_04 * cov_ratio_04
 
                     else 변화가 비선형적이다:
                         if 계절성을 갖는다.: .........5)
-                            cov_ratio = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
+                            # (다항회귀 모델 예측후 rmse 가 0.3보다 작다) and (diff_per가 30% 미만이다)
+                            cov_ratio_07 = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
+                            cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
                             
-                            # (다항회귀 모델 예측후 rmse 가 0.3보다 작다) and (diff_per가 30%미만이다)
-                            예측7월 <- 작년 6월 ~ 8월 평균* cov_ratio
-                            예측4월 <- 작년 2월 ~ 3월 평균* cov_ratio
+                            non_cov_07 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M, 19Y09M)
+                            non_cov_04 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M, 19Y09M)
+                            
+                            예측 7월 = non_cov_07 * cov_ratio_07
+                            예측 4월 = non_cov_04 * cov_ratio_04
 
                         elif 특별한 규칙이 없다: .........6)
-                            cov_ratio = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
-                            
                             # (다항회귀 모델 예측후 rmse 가 0.3보다 크다) or (diff_per가 30% 이상이다)
-                            예측7월 <- 전체 평균을 사용* cov_ratio
-                            예측4월 <- 전체 평균을 사용* cov_ratio
+                            cov_ratio_07 = (1 + 4 * mean(20Y02M, 20Y03M, 20Y04M) / mean(19Y02M, 19Y03M, 19Y04M)) / 5
+                            cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
+                            
+                            non_cov_07 = ((19Y05M, 19Y06M, 19Y07M, 19Y08M) * 2 + 나머지 기간 AMT) / (전체 기간의 길이 + 4)
+                            non_cov_04 = ((19Y05M, 19Y06M, 19Y07M, 19Y08M) * 2 + 나머지 기간) / (전체 기간의 길이 + 4)
+                            
+                            예측 7월 = non_cov_07 * cov_ratio_07
+                            예측 4월 = non_cov_04 * cov_ratio_04
 
             else std <= 0.15:
-                cov_ratio = (1 + 3 * 20Y04M/19Y04M) / 4
+                cov_ratio_07 = (1 + 3 * 20Y04M/19Y04M) / 4
+                cov_ratio_04 = 20Y03M/19Y03M
+                
+                non_cov_07 = mean(19Y06M, 19Y07M, 19Y08M)
+                non_cov_04 = mean(19Y06M, 19Y07M, 19Y08M)
+                
                 전체 평균 * cov_ratio .........7)
                 
         else 19년 데이터가 전부 존재하지 않는다: # uncomplete_group
+            # cov_ratio_07 구하기
             if 20년 4월 데이터가 존재한다:
-                cov_ratio = 20Y04M / 전체평균
+                cov_ratio_07 = 20Y04M / 전체평균
             elif 20년 3월 데이터가 존재한다:
-                cov_ratio = 0.7 * 20Y03M / 전체평균
+                cov_ratio_07 = 0.7 * 20Y03M / 전체평균
             else:
-                cov_ratio = 0.4
+                cov_ratio_07 = 0.4
+                
+            # cov_ratio_04 구하기
+            if 20년 3월 데이터가 존재한다:
+                cov_ratio_04 = 20Y03M / 전체평균
+            elif 20년 3월 데이터가 존재한다:
+                cov_ratio_04 = 20Y02M / 전체평균
+            else:
+                cov_ratio_04 = 0.4
+            
+            # 결측을 0으로 채워준다.
+            # 20년 1월까지 순차적으로 가중치를 크게 부여한다.
+            for i, month in enumerate([20Y01M, 19Y12M, 19Y11M, ..., 19Y01M]):
+                총 AMT += AMT[month] * 0.9^(i+1)
+            가중치 평균 AMT = 총 AMT / (0.9 + 0.9^2 + 0.9^3 + ...)
+                
+            non_cov_07 = 가중치 평균 AMT
+            non_cov_04 = 가중치 평균 AMT
 ```
