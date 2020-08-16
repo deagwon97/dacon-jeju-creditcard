@@ -144,7 +144,7 @@
                             cov_ratio_04 = 20Y04M/19Y04M
 
                             non_cov_07 = mean(19Y06M, 19Y07M, 19Y08M)
-                            non_cov_04 = mean(19Y06M, 19Y07M, 19Y08M)
+                            non_cov_04 = mean(19Y03M, 19Y04M, 19Y05M)
                             
                             예측 7월 = non_cov_07 * cov_ratio_07
                             예측 4월 = non_cov_04 * cov_ratio_04
@@ -155,7 +155,7 @@
                             cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
                             
                             non_cov_07 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
-                            non_cov_04 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M)
+                            non_cov_04 = mean(19Y02M, 19Y03M, 19Y04M, 19Y05M)
                             
                             예측 7월 = non_cov_07 * cov_ratio_07
                             예측 4월 = non_cov_04 * cov_ratio_04
@@ -179,7 +179,7 @@
                             cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
                             
                             non_cov_07 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M, 19Y09M)
-                            non_cov_04 = mean(19Y05M, 19Y06M, 19Y07M, 19Y08M, 19Y09M)
+                            non_cov_04 = mean(19Y02M, 19Y03M, 19Y04M, 19Y05M, 19Y06M)
                             
                             예측 7월 = non_cov_07 * cov_ratio_07
                             예측 4월 = non_cov_04 * cov_ratio_04
@@ -190,7 +190,7 @@
                             cov_ratio_04 = mean(20Y02M, 20Y03M) / mean(19Y02M, 19Y03M)
                             
                             non_cov_07 = ((19Y05M, 19Y06M, 19Y07M, 19Y08M) * 2 + 나머지 기간 AMT) / (전체 기간의 길이 + 4)
-                            non_cov_04 = ((19Y05M, 19Y06M, 19Y07M, 19Y08M) * 2 + 나머지 기간) / (전체 기간의 길이 + 4)
+                            non_cov_04 = ((19Y02M, 19Y03M, 19Y04M, 19Y05M) * 2 + 나머지 기간 AMT) / (전체 기간의 길이 + 4)
                             
                             예측 7월 = non_cov_07 * cov_ratio_07
                             예측 4월 = non_cov_04 * cov_ratio_04
@@ -200,7 +200,7 @@
                 cov_ratio_04 = 20Y03M/19Y03M
                 
                 non_cov_07 = mean(19Y06M, 19Y07M, 19Y08M)
-                non_cov_04 = mean(19Y06M, 19Y07M, 19Y08M)
+                non_cov_04 = mean(19Y03M, 19Y04M, 19Y06M)
                 
                 전체 평균 * cov_ratio .........7)
                 
