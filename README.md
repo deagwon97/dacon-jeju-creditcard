@@ -1,5 +1,5 @@
-# 2020_dacon_jeju_creditcard
-2020데이콘 제주 신용카드 빅데이터  경진대회 참가를 위한 repository
+# 2020-dacon-jeju-creditcard
+2020 DACON 제주 신용카드 빅데이터 경진대회 우승자 코드
 
 
 # 진행 과정
